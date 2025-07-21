@@ -1,1 +1,21 @@
-/* You can add global styles to this file, and also import other style files */
+/* src/styles.scss - CÓDIGO LIMPIO Y MÍNIMO */
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+
+:root {
+  --background-dark: #1a1a2e;
+  --text-primary: #2ee79ad3; 
+  --primary-accent: #00f2a1;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+  
+  // Asignamos el color de fondo aquí.
+  background-color: var(--background-dark);
+  color: var(--text-primary);
+}

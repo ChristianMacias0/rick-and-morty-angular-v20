@@ -2,14 +2,14 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 
-// GUÍA PARA EL ESTUDIANTE:
-// 1. Importa tu `CharacterListComponent`.
-// 2. Añádelo al array de `imports` de este componente.
+// La ruta correcta basada en tu estructura de archivos
+import { CharacterListComponent } from './components/character-list/character-list';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet],
+  // Añade el componente importado aquí
+  imports: [CommonModule, RouterOutlet, CharacterListComponent],
   templateUrl: './app.html',
   styleUrls: ['./app.scss']
 })

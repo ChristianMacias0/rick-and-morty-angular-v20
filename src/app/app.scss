@@ -1,1 +1,68 @@
-// Estilos a tu preferencia (Se recomienda estilos sencillos y claros)
+/* src/app/app.scss - ¡LA SOLUCIÓN QUE FUNCIONA! */
+
+// :host se refiere al propio <app-root>
+:host {
+  // Lo hacemos transparente para que el color base del body se vea.
+  background-color: transparent;
+  // Le damos un contexto de posicionamiento para sus hijos.
+  position: relative;
+  display: block;
+  // Creamos un plano de apilamiento para que el z-index de los portales funcione.
+  isolation: isolate;
+}
+
+// --- PORTALES CÓSMICOS FIJOS ---
+:host::before,
+:host::after {
+  content: '';
+  // ¡CLAVE! Fijos a la ventana, no se mueven con el scroll.
+  position: fixed; 
+  border-radius: 50%;
+  
+  // ¡CLAVE! Un z-index negativo los coloca detrás del contenido del :host.
+  // Como el :host tiene "isolation: isolate", no se irán detrás del body.
+  z-index: -1; 
+  
+  // Usamos la intensidad que te gustó
+  filter: blur(100px);
+  background: radial-gradient(circle, rgba(10, 230, 161, 0.7) 0%, transparent 85%);
+  animation: cosmic-pulse 25s infinite ease-in-out alternate;
+}
+
+// Portal Izquierdo
+:host::before {
+  width: 70vw;
+  height: 70vw;
+  top: 15vh;
+  left: -35vw; 
+  animation-duration: 4s;
+}
+
+// Portal Derecho
+:host::after {
+  width: 60vw;
+  height: 60vw;
+  bottom: 5vh;
+  right: -30vw;
+  animation-duration: 6s;
+}
+
+// --- ANIMACIÓN ---
+@keyframes cosmic-pulse {
+  from {
+    opacity: 0.3;
+    transform: scale(0.85) rotate(-20deg);
+  }
+  to {
+    opacity: 0.9;
+    transform: scale(1.2) rotate(20deg);
+  }
+}
+
+// --- Estilos del Encabezado (los mantenemos) ---
+.main-header {
+  text-align: center;
+  padding: 2rem 1rem;
+  /* El resto de tus estilos para el header están aquí */
+  h1, p { /* ... */ }
+}
